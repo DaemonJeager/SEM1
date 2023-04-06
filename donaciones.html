@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donaciones</title>
+    <link rel="stylesheet" href="estilos.css">
+
+<br>
+<title>Formulario de donación con jQuery</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("form").submit(function(){
+				var nombre = $("#nombre").val();
+				var email = $("#email").val();
+				var cantidad = $("#cantidad").val();
+				var tarjeta = $("#tarjeta").val();
+				var expiracion = $("#expiracion").val();
+				var cvv = $("#cvv").val();
+				if (nombre == "" || email == "" || cantidad == "" || tarjeta == "" || expiracion == "" || cvv == "") {
+					alert("Por favor completa todos los campos");
+					return false;
+				}
+				else if (isNaN(cantidad) || cantidad <= 0) {
+					alert("Por favor ingresa una cantidad válida");
+					return false;
+				}
+				else {
+					alert("Gracias por tu donación de $" + cantidad + "!");
+					return true;
+				}
+			});
+		});
+	</script>
+
+
+</head>
+<body background="/Imagenes/donacion2.jpg" bgcolor="FFCECB">
+    <h1>Donaciones para tus amigos peludos</h1>
+	<form>
+		<label for="nombre">Nombre:</label>
+		<input type="text" id="nombre" name="nombre"><br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br>
+
+		<label for="cantidad">Cantidad:</label>
+		<input type="text" id="cantidad" name="cantidad"><br>
+
+		<label for="tarjeta">Tarjeta de crédito:</label>
+		<input type="text" id="tarjeta" name="tarjeta"><br>
+
+		<label for="expiracion">Fecha de expiración:</label>
+		<input type="text" id="expiracion" name="expiracion"><br>
+
+		<label for="cvv">CVV:</label>
+		<input type="text" id="cvv" name="cvv"><br>
+
+		<input type="submit" value="Donar">
+	</form>
+<br>
+<hr>
+    <td><a class="boton"href="/index.html">volver</a></td>
+</body>
+</html>
